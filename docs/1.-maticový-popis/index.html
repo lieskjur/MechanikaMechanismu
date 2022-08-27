@@ -1,0 +1,169 @@
+<!doctype html><html lang=cz dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Maticový popis # Matice směrových kosínů # ortonormální \[\begin{aligned} \bm{S}_{12} &= \begin{bmatrix} { }^{1}\bm{i}_{2} & { }^{1}\bm{j}_{2} & { }^{1}\bm{k}_{2} \end{bmatrix} \\ &= \begin{bmatrix} \cos \alpha_{x} & \cos \alpha_{y} & \cos \alpha_{z} \\ \cos \beta_{x} & \cos \beta_{y} & \cos \beta_{z} \\ \cos \gamma_{x} & \cos \gamma_{y} & \cos \gamma_{z} \end{bmatrix} \end{aligned}\] \[\bm{S}_{12}^{-1} = \bm{S}_{12}^T\] Základní rotace # \[\begin{aligned} \bm{R}_{x}\left(\varphi\right) &= \begin{bmatrix} 1 & 0 & 0 \\ 0 & \cos \varphi & -\sin \varphi \\ 0 & \sin \varphi & \cos \varphi \\ \end{bmatrix} \\ \bm{R}_{y}\left(\varphi\right) &= \begin{bmatrix} \cos \varphi & 0 & \sin \varphi \\ 0 & 1 & 0 \\ -\sin \varphi & 0 & \cos \varphi \\ \end{bmatrix} \\ \bm{R}_{z}\left(\varphi\right) &= \begin{bmatrix} \cos \varphi & -\sin \varphi & 0 \\ \sin \varphi & \cos \varphi & 0 \\ 0 & 0 & 1 \end{bmatrix} \end{aligned}\] Matice úhlové rychlosti # anti-symetrická \[\bm{\Omega}_{12} = \begin{bmatrix} 0 & -\omega_{12_z} & \omega_{12_y} \\ \omega_{12_z} & 0 & -\omega_{12_x} \\ -\omega_{12_y} & \omega_{12_x} & 0 \end{bmatrix}\] \[\bm{\dot{S}}_{12} = \bm{S}_{12} \bm{\Omega}_{12}\] \[\bm{\Omega}_{12} \bm{r} = \bm{\omega}_{12} × \bm{r}\] Popis transformačními maticemi # Transformace # \[\bm{T}_{12}(t) = \begin{bmatrix} \bm{S}_{12}(t) & \bm{u}_{12}(t) \\ 0 & 1 \end{bmatrix} \,,\; \bm{u}_{12}(t) = \begin{bmatrix} x_{12}(t) \\ y_{12}(t) \\ z_{12}(t) \end{bmatrix}\] \[\bm{r}_{1L}(t) = \bm{T}_{12}(t) \bm{r}_{2L} \;,\quad \bm{r}_{2L} = \begin{bmatrix} \bm{u}_{2L} \\ 1 \end{bmatrix}\] Obecně # \[\bm{T}_\text{trans} = \begin{bmatrix} \bm{E} & \bm{u}_{12} \\ \bm{0} & 1 \end{bmatrix} \;,\quad \bm{T}_\text{rot} = \begin{bmatrix} \bm{S}_{12} & \bm{0} \\ \bm{0} & 1 \end{bmatrix}\] Základní posuvné pohyby # \[\begin{aligned} \bm{T}_{x}(x) &= \begin{bmatrix} 1 & 0 & 0 & x \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1 \end{bmatrix} \\ \bm{T}_{y}(y) &= \begin{bmatrix} 1 & 0 & 0 & 0 \\ 0 & 1 & 0 & y \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1 \end{bmatrix} \\ \bm{T}_{z}(z) &= \begin{bmatrix} 1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 1 & z \\ 0 & 0 & 0 & 1 \end{bmatrix} \end{aligned}\] Základní rotační pohyby # \[\begin{aligned} \bm{T}_{\varphi_x}\left(\varphi_{x}\right) &= \begin{bmatrix} \bm{R}_x(φ_x) & \bm{0} \\ \bm{0} & 1 \end{bmatrix} \\ \bm{T}_{\varphi_y}\left(\varphi_{y}\right) &= \begin{bmatrix} \bm{R}_y(φ_y) & \bm{0} \\ \bm{0} & 1 \end{bmatrix} \\ \bm{T}_{\varphi_z}\left(\varphi_{z}\right) &= \begin{bmatrix} \bm{R}_z(φ_z) & \bm{0} \\ \bm{0} & 1 \end{bmatrix} \end{aligned}\] Rychlosti a Zrychlení # \[\begin{aligned} {}^1\bm{r}_{1L} &= \bm{T}_{12} {}^2\bm{r}_{2L} \\ {}^1\bm{v}_{1L} &= \bm{\dot{T}}_{12} {}^2\bm{r}_{2L} \\ {}^1\bm{a}_{1L} &= \bm{\ddot{T}}_{12} {}^2\bm{r}_{2L} \end{aligned}\] \[\begin{aligned} \bm{\dot{T}}_{12} &= \bm{T}_{12} \bm{V}_{12} ⇒ \bm{V}_{12} = \bm{T}_{12}^{-1} \bm{\dot{T}}_{12} \\ \bm{\ddot{T}}_{12} &= \bm{\dot{T}}_{12} \bm{V}_{12} + \bm{T}_{12} \bm{\dot{V}}_{12} \\ &= \bm{T}_{12} \bm{V}_{12} \bm{V}_{12} + \bm{T}_{12} \bm{A}_{12} \end{aligned}\] Diferenciální operátory # \[\bm{\dot{T}}_{12} = \bm{T}_{12} \bm{D}_{12}\] \[\begin{aligned} \bm{D}_\text{trans} &= \begin{bmatrix} \bm{0} & \bm{\dot{u}}_{12} \\ \bm{0} & 0 \end{bmatrix} \\ \bm{D}_\text{rot} &= \begin{bmatrix} \bm{\Omega}_{12} & \bm{0} \\ \bm{0} & 0 \end{bmatrix} \end{aligned}\] Zdroj: MME 1."><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="Maticový popis"><meta property="og:description" content="Maticový popis # Matice směrových kosínů # ortonormální \[\begin{aligned} \bm{S}_{12} &= \begin{bmatrix} { }^{1}\bm{i}_{2} & { }^{1}\bm{j}_{2} & { }^{1}\bm{k}_{2} \end{bmatrix} \\ &= \begin{bmatrix} \cos \alpha_{x} & \cos \alpha_{y} & \cos \alpha_{z} \\ \cos \beta_{x} & \cos \beta_{y} & \cos \beta_{z} \\ \cos \gamma_{x} & \cos \gamma_{y} & \cos \gamma_{z} \end{bmatrix} \end{aligned}\] \[\bm{S}_{12}^{-1} = \bm{S}_{12}^T\] Základní rotace # \[\begin{aligned} \bm{R}_{x}\left(\varphi\right) &= \begin{bmatrix} 1 & 0 & 0 \\ 0 & \cos \varphi & -\sin \varphi \\ 0 & \sin \varphi & \cos \varphi \\ \end{bmatrix} \\ \bm{R}_{y}\left(\varphi\right) &= \begin{bmatrix} \cos \varphi & 0 & \sin \varphi \\ 0 & 1 & 0 \\ -\sin \varphi & 0 & \cos \varphi \\ \end{bmatrix} \\ \bm{R}_{z}\left(\varphi\right) &= \begin{bmatrix} \cos \varphi & -\sin \varphi & 0 \\ \sin \varphi & \cos \varphi & 0 \\ 0 & 0 & 1 \end{bmatrix} \end{aligned}\] Matice úhlové rychlosti # anti-symetrická \[\bm{\Omega}_{12} = \begin{bmatrix} 0 & -\omega_{12_z} & \omega_{12_y} \\ \omega_{12_z} & 0 & -\omega_{12_x} \\ -\omega_{12_y} & \omega_{12_x} & 0 \end{bmatrix}\] \[\bm{\dot{S}}_{12} = \bm{S}_{12} \bm{\Omega}_{12}\] \[\bm{\Omega}_{12} \bm{r} = \bm{\omega}_{12} × \bm{r}\] Popis transformačními maticemi # Transformace # \[\bm{T}_{12}(t) = \begin{bmatrix} \bm{S}_{12}(t) & \bm{u}_{12}(t) \\ 0 & 1 \end{bmatrix} \,,\; \bm{u}_{12}(t) = \begin{bmatrix} x_{12}(t) \\ y_{12}(t) \\ z_{12}(t) \end{bmatrix}\] \[\bm{r}_{1L}(t) = \bm{T}_{12}(t) \bm{r}_{2L} \;,\quad \bm{r}_{2L} = \begin{bmatrix} \bm{u}_{2L} \\ 1 \end{bmatrix}\] Obecně # \[\bm{T}_\text{trans} = \begin{bmatrix} \bm{E} & \bm{u}_{12} \\ \bm{0} & 1 \end{bmatrix} \;,\quad \bm{T}_\text{rot} = \begin{bmatrix} \bm{S}_{12} & \bm{0} \\ \bm{0} & 1 \end{bmatrix}\] Základní posuvné pohyby # \[\begin{aligned} \bm{T}_{x}(x) &= \begin{bmatrix} 1 & 0 & 0 & x \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1 \end{bmatrix} \\ \bm{T}_{y}(y) &= \begin{bmatrix} 1 & 0 & 0 & 0 \\ 0 & 1 & 0 & y \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1 \end{bmatrix} \\ \bm{T}_{z}(z) &= \begin{bmatrix} 1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 1 & z \\ 0 & 0 & 0 & 1 \end{bmatrix} \end{aligned}\] Základní rotační pohyby # \[\begin{aligned} \bm{T}_{\varphi_x}\left(\varphi_{x}\right) &= \begin{bmatrix} \bm{R}_x(φ_x) & \bm{0} \\ \bm{0} & 1 \end{bmatrix} \\ \bm{T}_{\varphi_y}\left(\varphi_{y}\right) &= \begin{bmatrix} \bm{R}_y(φ_y) & \bm{0} \\ \bm{0} & 1 \end{bmatrix} \\ \bm{T}_{\varphi_z}\left(\varphi_{z}\right) &= \begin{bmatrix} \bm{R}_z(φ_z) & \bm{0} \\ \bm{0} & 1 \end{bmatrix} \end{aligned}\] Rychlosti a Zrychlení # \[\begin{aligned} {}^1\bm{r}_{1L} &= \bm{T}_{12} {}^2\bm{r}_{2L} \\ {}^1\bm{v}_{1L} &= \bm{\dot{T}}_{12} {}^2\bm{r}_{2L} \\ {}^1\bm{a}_{1L} &= \bm{\ddot{T}}_{12} {}^2\bm{r}_{2L} \end{aligned}\] \[\begin{aligned} \bm{\dot{T}}_{12} &= \bm{T}_{12} \bm{V}_{12} ⇒ \bm{V}_{12} = \bm{T}_{12}^{-1} \bm{\dot{T}}_{12} \\ \bm{\ddot{T}}_{12} &= \bm{\dot{T}}_{12} \bm{V}_{12} + \bm{T}_{12} \bm{\dot{V}}_{12} \\ &= \bm{T}_{12} \bm{V}_{12} \bm{V}_{12} + \bm{T}_{12} \bm{A}_{12} \end{aligned}\] Diferenciální operátory # \[\bm{\dot{T}}_{12} = \bm{T}_{12} \bm{D}_{12}\] \[\begin{aligned} \bm{D}_\text{trans} &= \begin{bmatrix} \bm{0} & \bm{\dot{u}}_{12} \\ \bm{0} & 0 \end{bmatrix} \\ \bm{D}_\text{rot} &= \begin{bmatrix} \bm{\Omega}_{12} & \bm{0} \\ \bm{0} & 0 \end{bmatrix} \end{aligned}\] Zdroj: MME 1."><meta property="og:type" content="article"><meta property="og:url" content="http://example.org/docs/1.-maticov%C3%BD-popis/"><meta property="article:section" content="docs"><title>Maticový popis | Mechanika Mechanismů</title><link rel=manifest href=/manifest.json><link rel=icon href=/favicon.png type=image/x-icon><link rel=stylesheet href=/book.min.c58292d36b18b675680ab9baea2029204537b839ea72f258746ec0f32ce8d6c8.css integrity="sha256-xYKS02sYtnVoCrm66iApIEU3uDnqcvJYdG7A8yzo1sg=" crossorigin=anonymous><script defer src=/flexsearch.min.js></script>
+<script defer src=/en.search.min.6d601973bce2f31b5e5f2eb71d162fac47af7d32c219ec02fe999fd121f67e6c.js integrity="sha256-bWAZc7zi8xteXy63HRYvrEevfTLCGewC/pmf0SH2fmw=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/><span>Mechanika Mechanismů</span></a></h2><div class=book-search><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><ul><li><a href=/docs/1.-maticov%C3%BD-popis/ class=active>Maticový popis</a></li><li><a href=/docs/2.-sou%C5%99adnice/>Souřadnice</a></li><li><a href=/docs/3.-formulace-a-numerick%C3%A9-%C5%99e%C5%A1en%C3%AD-kinematick%C3%A9-%C3%BAlohy-pro-mechanismy-se-smy%C4%8Dkami/>Formulace a numerické řešení kinematické úlohy pro mechanismy se smyčkami</a></li><li><a href=/docs/4.-%C5%99e%C5%A1en%C3%AD-kinematick%C3%BDch-%C3%BAloh-v-uzav%C5%99en%C3%A9m-tvaru/>Řešení kinematických úloh v uzavřeném tvaru</a></li><li><a href=/docs/5.-newton-eulerovy-pohybov%C3%A9-rovnice/>Newton-Eulerovy pohybové rovnice</a></li><li><a href=/docs/6.-lagrangeovy-rovnice/>Lagrangeovy rovnice</a></li><li><a href=/docs/7.-numerick%C3%A9-%C5%99e%C5%A1en%C3%AD-algebro-diferenci%C3%A1ln%C3%ADch-rovnic/>Numerické řešení algebro-diferenciálních rovnic</a></li><li><a href=/docs/v%C5%A1echny-zdroje/>Všechny Zdroje</a></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/svg/menu.svg class=book-icon alt=Menu></label>
+<strong>Maticový popis</strong>
+<label for=toc-control><img src=/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#matice-směrových-kosínů>Matice směrových kosínů</a><ul><li><a href=#základní-rotace>Základní rotace</a></li></ul></li><li><a href=#matice-úhlové-rychlosti>Matice úhlové rychlosti</a></li><li><a href=#popis-transformačními-maticemi>Popis transformačními maticemi</a><ul><li><a href=#transformace>Transformace</a></li><li><a href=#obecně>Obecně</a></li></ul></li><li><a href=#rychlosti-a-zrychlení>Rychlosti a Zrychlení</a></li><li><a href=#diferenciální-operátory>Diferenciální operátory</a></li></ul></nav></aside></header><article class=markdown><h1 id=maticový-popis>Maticový popis
+<a class=anchor href=#maticov%c3%bd-popis>#</a></h1><h2 id=matice-směrových-kosínů>Matice směrových kosínů
+<a class=anchor href=#matice-sm%c4%9brov%c3%bdch-kos%c3%adn%c5%af>#</a></h2><ul><li>ortonormální
+<link rel=stylesheet href=/katex/katex.min.css><script defer src=/katex/katex.min.js></script>
+<script defer src=/katex/auto-render.min.js onload=renderMathInElement(document.body)></script><span>
+\[\begin{aligned}
+\bm{S}_{12}
+&=
+\begin{bmatrix}
+{ }^{1}\bm{i}_{2} & { }^{1}\bm{j}_{2} & { }^{1}\bm{k}_{2}
+\end{bmatrix}
+\\
+&=
+\begin{bmatrix}
+\cos \alpha_{x} & \cos \alpha_{y} & \cos \alpha_{z} \\
+\cos \beta_{x} & \cos \beta_{y} & \cos \beta_{z} \\
+\cos \gamma_{x} & \cos \gamma_{y} & \cos \gamma_{z}
+\end{bmatrix}
+\end{aligned}\]</span></li></ul><span>\[\bm{S}_{12}^{-1} = \bm{S}_{12}^T\]</span><h3 id=základní-rotace>Základní rotace
+<a class=anchor href=#z%c3%a1kladn%c3%ad-rotace>#</a></h3><span>\[\begin{aligned}
+\bm{R}_{x}\left(\varphi\right)
+&=
+\begin{bmatrix}
+1 & 0 & 0 \\
+0 & \cos \varphi & -\sin \varphi \\
+0 & \sin \varphi & \cos \varphi \\
+\end{bmatrix}
+\\
+\bm{R}_{y}\left(\varphi\right)
+&=
+\begin{bmatrix}
+\cos \varphi & 0 & \sin \varphi \\
+0 & 1 & 0 \\
+-\sin \varphi & 0 & \cos \varphi \\
+\end{bmatrix} \\
+\bm{R}_{z}\left(\varphi\right)
+&=
+\begin{bmatrix}
+\cos \varphi & -\sin \varphi & 0 \\
+\sin \varphi & \cos \varphi & 0 \\
+0 & 0 & 1
+\end{bmatrix}
+\end{aligned}\]</span><h2 id=matice-úhlové-rychlosti>Matice úhlové rychlosti
+<a class=anchor href=#matice-%c3%bahlov%c3%a9-rychlosti>#</a></h2><ul><li>anti-symetrická
+<span>\[\bm{\Omega}_{12}
+=
+\begin{bmatrix}
+0 & -\omega_{12_z} & \omega_{12_y} \\
+\omega_{12_z} & 0 & -\omega_{12_x} \\
+-\omega_{12_y} & \omega_{12_x} & 0
+\end{bmatrix}\]</span>
+<span>\[\bm{\dot{S}}_{12} = \bm{S}_{12} \bm{\Omega}_{12}\]</span>
+<span>\[\bm{\Omega}_{12} \bm{r} = \bm{\omega}_{12} × \bm{r}\]</span></li></ul><h2 id=popis-transformačními-maticemi>Popis transformačními maticemi
+<a class=anchor href=#popis-transforma%c4%8dn%c3%admi-maticemi>#</a></h2><h3 id=transformace>Transformace
+<a class=anchor href=#transformace>#</a></h3><span>\[\bm{T}_{12}(t)
+=
+\begin{bmatrix}
+\bm{S}_{12}(t) & \bm{u}_{12}(t) \\
+0 & 1
+\end{bmatrix}
+\,,\;
+\bm{u}_{12}(t)
+=
+\begin{bmatrix}
+x_{12}(t) \\ y_{12}(t) \\ z_{12}(t)
+\end{bmatrix}\]</span>
+<span>\[\bm{r}_{1L}(t) = \bm{T}_{12}(t) \bm{r}_{2L}
+\;,\quad
+\bm{r}_{2L}
+=
+\begin{bmatrix}
+\bm{u}_{2L} \\
+1
+\end{bmatrix}\]</span><h3 id=obecně>Obecně
+<a class=anchor href=#obecn%c4%9b>#</a></h3><span>\[\bm{T}_\text{trans}
+=
+\begin{bmatrix}
+\bm{E} & \bm{u}_{12} \\
+\bm{0} & 1
+\end{bmatrix}
+\;,\quad
+\bm{T}_\text{rot}
+=
+\begin{bmatrix}
+\bm{S}_{12} & \bm{0} \\
+\bm{0} & 1
+\end{bmatrix}\]</span><h4 id=základní-posuvné-pohyby>Základní posuvné pohyby
+<a class=anchor href=#z%c3%a1kladn%c3%ad-posuvn%c3%a9-pohyby>#</a></h4><span>\[\begin{aligned}
+\bm{T}_{x}(x)
+&=
+\begin{bmatrix}
+1 & 0 & 0 & x \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1
+\end{bmatrix} \\
+\bm{T}_{y}(y)
+&=
+\begin{bmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & y \\
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1
+\end{bmatrix} \\
+\bm{T}_{z}(z)
+&=
+\begin{bmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 1 & z \\
+0 & 0 & 0 & 1
+\end{bmatrix}
+\end{aligned}\]</span><h4 id=základní-rotační-pohyby>Základní rotační pohyby
+<a class=anchor href=#z%c3%a1kladn%c3%ad-rota%c4%8dn%c3%ad-pohyby>#</a></h4><span>\[\begin{aligned}
+\bm{T}_{\varphi_x}\left(\varphi_{x}\right)
+&=
+\begin{bmatrix}
+\bm{R}_x(φ_x) & \bm{0} \\
+\bm{0} & 1
+\end{bmatrix}
+\\
+\bm{T}_{\varphi_y}\left(\varphi_{y}\right)
+&=
+\begin{bmatrix}
+\bm{R}_y(φ_y) & \bm{0} \\
+\bm{0} & 1
+\end{bmatrix}
+\\
+\bm{T}_{\varphi_z}\left(\varphi_{z}\right)
+&=
+\begin{bmatrix}
+\bm{R}_z(φ_z) & \bm{0} \\
+\bm{0} & 1
+\end{bmatrix}
+\end{aligned}\]</span><h2 id=rychlosti-a-zrychlení>Rychlosti a Zrychlení
+<a class=anchor href=#rychlosti-a-zrychlen%c3%ad>#</a></h2><p><span>\[\begin{aligned}
+{}^1\bm{r}_{1L} &= \bm{T}_{12} {}^2\bm{r}_{2L} \\
+{}^1\bm{v}_{1L} &= \bm{\dot{T}}_{12} {}^2\bm{r}_{2L} \\
+{}^1\bm{a}_{1L} &= \bm{\ddot{T}}_{12} {}^2\bm{r}_{2L}
+\end{aligned}\]</span>
+<span>\[\begin{aligned}
+\bm{\dot{T}}_{12} &= \bm{T}_{12} \bm{V}_{12} ⇒ \bm{V}_{12} = \bm{T}_{12}^{-1} \bm{\dot{T}}_{12}
+\\
+\bm{\ddot{T}}_{12}
+&=
+\bm{\dot{T}}_{12} \bm{V}_{12} + \bm{T}_{12} \bm{\dot{V}}_{12}
+\\ &=
+\bm{T}_{12} \bm{V}_{12} \bm{V}_{12} + \bm{T}_{12} \bm{A}_{12}
+\end{aligned}\]</span></p><h2 id=diferenciální-operátory>Diferenciální operátory
+<a class=anchor href=#diferenci%c3%a1ln%c3%ad-oper%c3%a1tory>#</a></h2><p><span>\[\bm{\dot{T}}_{12} = \bm{T}_{12} \bm{D}_{12}\]</span>
+<span>\[\begin{aligned}
+\bm{D}_\text{trans}
+&=
+\begin{bmatrix}
+\bm{0} & \bm{\dot{u}}_{12} \\
+\bm{0} & 0
+\end{bmatrix}
+\\
+\bm{D}_\text{rot}
+&=
+\begin{bmatrix}
+\bm{\Omega}_{12} & \bm{0} \\
+\bm{0} & 0
+\end{bmatrix}
+\end{aligned}\]</span></p><hr><p>Zdroj: <a href=/MME1.pdf>MME 1. prezentace</a></p></article><footer class=book-footer><div class="flex flex-wrap justify-between"></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#matice-směrových-kosínů>Matice směrových kosínů</a><ul><li><a href=#základní-rotace>Základní rotace</a></li></ul></li><li><a href=#matice-úhlové-rychlosti>Matice úhlové rychlosti</a></li><li><a href=#popis-transformačními-maticemi>Popis transformačními maticemi</a><ul><li><a href=#transformace>Transformace</a></li><li><a href=#obecně>Obecně</a></li></ul></li><li><a href=#rychlosti-a-zrychlení>Rychlosti a Zrychlení</a></li><li><a href=#diferenciální-operátory>Diferenciální operátory</a></li></ul></nav></div></aside></main></body></html>

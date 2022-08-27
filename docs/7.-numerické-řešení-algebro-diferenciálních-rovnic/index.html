@@ -1,0 +1,115 @@
+<!doctype html><html lang=cz dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Numerické řešení algebro-diferenciálních rovnic # Budeme vycházet z pohybových rovnic ve tvaru \[\bm{M} \bm{\ddot{s}} = \bm{Φ}^T \bm{λ} + \bm{p}\] s podmínkou splnění vazbových rovnic \[\bm{f} = \bm{0}\] kde \( \bm{p} \) obsahuje vnější silové účinky, vliv koriolisových a dostředivých zrychlení, apod.
+Baumgartova stabilizace # Pokud platí \( \bm{f}=\bm{0} \) musí platit \( \bm{\ddot{f}}=\bm{0} \) přičemž \[\begin{aligned} \bm{\dot{f}} &= \bm{Φ} \bm{\dot{s}} = \bm{0} \\ \bm{\ddot{f}} &= \bm{Φ} \bm{\ddot{s}} + \bm{\dot{Φ}}_s \bm{\dot{s}} = \bm{0} \end{aligned}\] Jelikož není zaručená stabilita vazbových rovnic \( \bm{\ddot{f}}=\bm{0} \) modifikujeme je do tvaru \[\bm{\ddot{f}} + 2 α \bm{\dot{f}} + β^2 \bm{f} = \bm{0} \;,\quad α > 0\] Po dosazení výše odvozených derivací vazbových rovnic tvoří modifikované rovnice spolu s pohybovými rovnicemi soustavu \[\begin{bmatrix} \bm{M} & \bm{Φ}_{s}^{T} \\ \bm{Φ}_{s} & \bm{0} \end{bmatrix} \begin{bmatrix} \bm{\ddot{s}} \\ - \bm{\lambda} \end{bmatrix} = \begin{bmatrix} \bm{p} \\ -\bm{\dot{Φ}}_{s} \bm{\dot{ s }} - 2 α \bm{Φ}_{s}\bm{\dot{s}} - β^{2} \bm{f} \end{bmatrix}\] Řešení v nezávislých souřadnicích # Podstatou je nalezení matice \( \bm{R} \) s vlastnostmi \[\bm{Φ} \bm{R} = \bm{0} \;,\quad \bm{\dot{s}} = \bm{R}\bm{\dot{q}}\] kde \( \bm{q} \) je vektor nezávislých souřadnic."><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="Numerické řešení algebro-diferenciálních rovnic"><meta property="og:description" content="Numerické řešení algebro-diferenciálních rovnic # Budeme vycházet z pohybových rovnic ve tvaru \[\bm{M} \bm{\ddot{s}} = \bm{Φ}^T \bm{λ} + \bm{p}\] s podmínkou splnění vazbových rovnic \[\bm{f} = \bm{0}\] kde \( \bm{p} \) obsahuje vnější silové účinky, vliv koriolisových a dostředivých zrychlení, apod.
+Baumgartova stabilizace # Pokud platí \( \bm{f}=\bm{0} \) musí platit \( \bm{\ddot{f}}=\bm{0} \) přičemž \[\begin{aligned} \bm{\dot{f}} &= \bm{Φ} \bm{\dot{s}} = \bm{0} \\ \bm{\ddot{f}} &= \bm{Φ} \bm{\ddot{s}} + \bm{\dot{Φ}}_s \bm{\dot{s}} = \bm{0} \end{aligned}\] Jelikož není zaručená stabilita vazbových rovnic \( \bm{\ddot{f}}=\bm{0} \) modifikujeme je do tvaru \[\bm{\ddot{f}} + 2 α \bm{\dot{f}} + β^2 \bm{f} = \bm{0} \;,\quad α > 0\] Po dosazení výše odvozených derivací vazbových rovnic tvoří modifikované rovnice spolu s pohybovými rovnicemi soustavu \[\begin{bmatrix} \bm{M} & \bm{Φ}_{s}^{T} \\ \bm{Φ}_{s} & \bm{0} \end{bmatrix} \begin{bmatrix} \bm{\ddot{s}} \\ - \bm{\lambda} \end{bmatrix} = \begin{bmatrix} \bm{p} \\ -\bm{\dot{Φ}}_{s} \bm{\dot{ s }} - 2 α \bm{Φ}_{s}\bm{\dot{s}} - β^{2} \bm{f} \end{bmatrix}\] Řešení v nezávislých souřadnicích # Podstatou je nalezení matice \( \bm{R} \) s vlastnostmi \[\bm{Φ} \bm{R} = \bm{0} \;,\quad \bm{\dot{s}} = \bm{R}\bm{\dot{q}}\] kde \( \bm{q} \) je vektor nezávislých souřadnic."><meta property="og:type" content="article"><meta property="og:url" content="http://example.org/docs/7.-numerick%C3%A9-%C5%99e%C5%A1en%C3%AD-algebro-diferenci%C3%A1ln%C3%ADch-rovnic/"><meta property="article:section" content="docs"><title>Numerické řešení algebro-diferenciálních rovnic | Mechanika Mechanismů</title><link rel=manifest href=/manifest.json><link rel=icon href=/favicon.png type=image/x-icon><link rel=stylesheet href=/book.min.c58292d36b18b675680ab9baea2029204537b839ea72f258746ec0f32ce8d6c8.css integrity="sha256-xYKS02sYtnVoCrm66iApIEU3uDnqcvJYdG7A8yzo1sg=" crossorigin=anonymous><script defer src=/flexsearch.min.js></script>
+<script defer src=/en.search.min.6d601973bce2f31b5e5f2eb71d162fac47af7d32c219ec02fe999fd121f67e6c.js integrity="sha256-bWAZc7zi8xteXy63HRYvrEevfTLCGewC/pmf0SH2fmw=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/><span>Mechanika Mechanismů</span></a></h2><div class=book-search><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><ul><li><a href=/docs/1.-maticov%C3%BD-popis/>Maticový popis</a></li><li><a href=/docs/2.-sou%C5%99adnice/>Souřadnice</a></li><li><a href=/docs/3.-formulace-a-numerick%C3%A9-%C5%99e%C5%A1en%C3%AD-kinematick%C3%A9-%C3%BAlohy-pro-mechanismy-se-smy%C4%8Dkami/>Formulace a numerické řešení kinematické úlohy pro mechanismy se smyčkami</a></li><li><a href=/docs/4.-%C5%99e%C5%A1en%C3%AD-kinematick%C3%BDch-%C3%BAloh-v-uzav%C5%99en%C3%A9m-tvaru/>Řešení kinematických úloh v uzavřeném tvaru</a></li><li><a href=/docs/5.-newton-eulerovy-pohybov%C3%A9-rovnice/>Newton-Eulerovy pohybové rovnice</a></li><li><a href=/docs/6.-lagrangeovy-rovnice/>Lagrangeovy rovnice</a></li><li><a href=/docs/7.-numerick%C3%A9-%C5%99e%C5%A1en%C3%AD-algebro-diferenci%C3%A1ln%C3%ADch-rovnic/ class=active>Numerické řešení algebro-diferenciálních rovnic</a></li><li><a href=/docs/v%C5%A1echny-zdroje/>Všechny Zdroje</a></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/svg/menu.svg class=book-icon alt=Menu></label>
+<strong>Numerické řešení algebro-diferenciálních rovnic</strong>
+<label for=toc-control><img src=/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#baumgartova-stabilizace>Baumgartova stabilizace</a></li><li><a href=#řešení-v-nezávislých-souřadnicích>Řešení v nezávislých souřadnicích</a><ul><li><a href=#metoda-projekce>Metoda projekce</a></li></ul></li></ul></nav></aside></header><article class=markdown><h1 id=numerické-řešení-algebro-diferenciálních-rovnic>Numerické řešení algebro-diferenciálních rovnic
+<a class=anchor href=#numerick%c3%a9-%c5%99e%c5%a1en%c3%ad-algebro-diferenci%c3%a1ln%c3%adch-rovnic>#</a></h1><p>Budeme vycházet z pohybových rovnic ve tvaru
+<link rel=stylesheet href=/katex/katex.min.css><script defer src=/katex/katex.min.js></script>
+<script defer src=/katex/auto-render.min.js onload=renderMathInElement(document.body)></script><span>
+\[\bm{M} \bm{\ddot{s}} = \bm{Φ}^T \bm{λ} + \bm{p}\]</span>
+s podmínkou splnění vazbových rovnic
+<span>\[\bm{f} = \bm{0}\]</span>
+kde <span>\( \bm{p} \)</span>
+obsahuje vnější silové účinky, vliv koriolisových a dostředivých zrychlení, apod.</p><h2 id=baumgartova-stabilizace>Baumgartova stabilizace
+<a class=anchor href=#baumgartova-stabilizace>#</a></h2><p>Pokud platí <span>\( \bm{f}=\bm{0} \)</span>
+musí platit <span>\( \bm{\ddot{f}}=\bm{0} \)</span>
+přičemž
+<span>\[\begin{aligned}
+\bm{\dot{f}} &= \bm{Φ} \bm{\dot{s}} = \bm{0} \\
+\bm{\ddot{f}} &= \bm{Φ} \bm{\ddot{s}} + \bm{\dot{Φ}}_s \bm{\dot{s}} = \bm{0}
+\end{aligned}\]</span>
+Jelikož není zaručená stabilita vazbových rovnic <span>\( \bm{\ddot{f}}=\bm{0} \)</span>
+modifikujeme je do tvaru
+<span>\[\bm{\ddot{f}} + 2 α \bm{\dot{f}} + β^2 \bm{f} = \bm{0}
+\;,\quad
+α > 0\]</span>
+Po dosazení výše odvozených derivací vazbových rovnic tvoří modifikované rovnice spolu s pohybovými rovnicemi soustavu
+<span>\[\begin{bmatrix}
+\bm{M} & \bm{Φ}_{s}^{T} \\
+\bm{Φ}_{s} & \bm{0}
+\end{bmatrix}
+\begin{bmatrix}
+\bm{\ddot{s}} \\
+- \bm{\lambda}
+\end{bmatrix}
+=
+\begin{bmatrix}
+\bm{p} \\
+-\bm{\dot{Φ}}_{s} \bm{\dot{ s }} - 2 α \bm{Φ}_{s}\bm{\dot{s}} - β^{2} \bm{f}
+\end{bmatrix}\]</span></p><h2 id=řešení-v-nezávislých-souřadnicích>Řešení v nezávislých souřadnicích
+<a class=anchor href=#%c5%99e%c5%a1en%c3%ad-v-nez%c3%a1visl%c3%bdch-sou%c5%99adnic%c3%adch>#</a></h2><p>Podstatou je nalezení matice <span>\( \bm{R} \)</span>
+s vlastnostmi
+<span>\[\bm{Φ} \bm{R} = \bm{0}
+\;,\quad
+\bm{\dot{s}} = \bm{R}\bm{\dot{q}}\]</span>
+kde <span>\( \bm{q} \)</span>
+je vektor nezávislých souřadnic. Pak lze z pohybových rovnic eliminovat lagrangeovy multiplikátory <span>\( \bm{λ} \)</span>
+a závislé souřádnice vynásobením <span>\( \bm{R}^T \)</span>
+zleva a substitucí <span>\( \bm{\ddot{s}} = \bm{R}\bm{\ddot{q}} + \bm{\dot{R}}\bm{\dot{q}} \)</span>
+.
+<span>\[\begin{aligned}
+\bm{R}^T \bm{M} ( \bm{R}\bm{\ddot{q}} + \bm{\dot{R}}\bm{\dot{q}} )
+&=
+\underbrace{\bm{R}^T \bm{Φ}^T}_{\bm{0}} \bm{λ} + \bm{R}^T \bm{p}
+\\
+\bm{R}^T \bm{M} \bm{R} \bm{\ddot{q}}
+&=
+\bm{R}^T (\bm{p} - \bm{M} \bm{\dot{R}}\bm{\dot{q}} )
+\end{aligned}\]</span></p><h3 id=metoda-projekce>Metoda projekce
+<a class=anchor href=#metoda-projekce>#</a></h3><p>Pokud rozdělíme souřadnice <span>\( \bm{s} \)</span>
+na nezávislé <span>\( \bm{q} \)</span>
+a závislé <span>\( \bm{z} \)</span>
+souřádnice
+<span>\[\bm{s}
+=
+\begin{bmatrix}
+\bm{z} \\ \bm{q}
+\end{bmatrix}\]</span>
+matici <span>\( \bm{Φ} \)</span>
+můžeme také rozdělit na sloupce náležící k závislým a nezávislým souřádnicím
+<span>\[\begin{bmatrix}
+\bm{Φ}_z & \bm{Φ}_q
+\end{bmatrix}
+\begin{bmatrix}
+\bm{\dot{z}} \\ \bm{\dot{q}}
+\end{bmatrix}
+=
+\bm{Φ}_z \bm{\dot{z}} + \bm{Φ}_q \bm{\dot{q}}
+=
+\bm{0}\]</span>
+Pokud je matice <span>\( \bm{Φ}_z \)</span>
+regulární, platí
+<span>\[\bm{\dot{z}} = -\bm{Φ}_z^{-1} \bm{Φ}_q \bm{\dot{q}}\]</span>
+z čehož lze odvodit tvar matice <span>\( \bm{R} \)</span>
+<span>\[\bm{\dot{s}}
+=
+\begin{bmatrix}
+\bm{\dot{z}} \\ \bm{\dot{q}}
+\end{bmatrix}
+=
+\underbrace{
+\begin{bmatrix}
+-\bm{Φ}_z^{-1} \bm{Φ}_q \\
+\bm{E}
+\end{bmatrix}
+}_{\bm{R}}
+\bm{\dot{q}}\]</span>
+přičemž platí <span>\( \bm{Φ} \bm{R} = \bm{0} \)</span>
+jelikož
+<span>\[\underbrace{
+\begin{bmatrix}
+\bm{Φ}_z & \bm{Φ}_q
+\end{bmatrix}
+}_{\bm{Φ}}
+\underbrace{
+\begin{bmatrix}
+-\bm{Φ}_z^{-1} \bm{Φ}_q \\
+\bm{E}
+\end{bmatrix}
+}_{\bm{R}}
+=
+- \bm{Φ}_z \bm{Φ}_z^{-1} \bm{Φ}_q + \bm{Φ}_q
+=
+\bm{0}\]</span></p><hr><p>Zdroj: <a href=DynRobotSys.pdf>Dynamika robotických systémů (prezentace) - prof. Valášek</a></p></article><footer class=book-footer><div class="flex flex-wrap justify-between"></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#baumgartova-stabilizace>Baumgartova stabilizace</a></li><li><a href=#řešení-v-nezávislých-souřadnicích>Řešení v nezávislých souřadnicích</a><ul><li><a href=#metoda-projekce>Metoda projekce</a></li></ul></li></ul></nav></div></aside></main></body></html>
