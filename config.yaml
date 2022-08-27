@@ -1,0 +1,4 @@
+baseURL: http://example.org/
+languageCode: cz
+title: Mechanika Mechanismů
+theme: hugo-book
